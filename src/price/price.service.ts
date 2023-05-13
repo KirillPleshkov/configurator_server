@@ -28,14 +28,14 @@ export class PriceService {
             const price = $($(element).find('a')[0]).text()
             const storeUrl = 'https://n-katalog.ru' + $(element).find('a').attr('onmouseover').split('"')[1]
 
-            if(storeName !== "Citilink.ru" && storeName !== "Alt-dim.ru")
+            if(storeName !== "Citilink.ru" && storeName !== "Alt-dim.ru" && storeName !== "DNS-shop.ru")
                 normalImg = img
 
             prices.push({img: img, imgStore: imgStore, header: header, storeName: storeName, price: price, storeUrl: storeUrl})
         })
 
         prices.map((element) => {
-            if(element.storeName === "Citilink.ru" || element.storeName === "Alt-dim.ru")
+            if(element.storeName === "Citilink.ru" || element.storeName === "Alt-dim.ru" || element.storeName === "DNS-shop.ru")
                 element.img = normalImg
         })
 

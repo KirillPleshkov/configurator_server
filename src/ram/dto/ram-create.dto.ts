@@ -1,4 +1,4 @@
 export class RamCreateDto {
-    readonly url: string
+    readonly name: string
     readonly totalVolume: number
 }

@@ -1,7 +1,7 @@
 import {Column, DataType, Model, Table} from "sequelize-typescript";
 
 interface RamCreationAttrs {
-    readonly url: string
+    readonly name: string
     readonly totalVolume: number
 }
 
@@ -12,7 +12,7 @@ export class RamModel extends Model<RamModel, RamCreationAttrs> {
     id : number
 
     @Column({type: DataType.STRING, allowNull: false})
-    url : string
+    name : string
 
     @Column({type: DataType.INTEGER, allowNull: false})
     totalVolume : number

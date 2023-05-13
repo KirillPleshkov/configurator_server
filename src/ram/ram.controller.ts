@@ -1,6 +1,6 @@
 import {Body, Controller, Get, Post} from '@nestjs/common';
 import {RamService} from "./ram.service";
-import {RemGetCostDto} from "./dto/rem-get-cost.dto";
+import {RamGetDto} from "./dto/ram-get.dto";
 import {RamCreateDto} from "./dto/ram-create.dto";
 
 @Controller('ram')
@@ -13,8 +13,8 @@ export class RamController {
     }
 
     @Post('/get-cost')
-    getCost(@Body() remGetCostDto: RemGetCostDto) {
-        return this.ramService.getCost(remGetCostDto)
+    getCost(@Body() remGetDto: RamGetDto) {
+        return this.ramService.getCost(remGetDto)
     }
 
     @Post('/create-ram')
@@ -23,7 +23,7 @@ export class RamController {
     }
 
     @Post('/get-components')
-    getComponents(@Body() remGetCostDto: RemGetCostDto) {
-        return this.ramService.getComponents(remGetCostDto)
+    getComponents(@Body() remGetDto: RamGetDto) {
+        return this.ramService.getComponents(remGetDto)
     }
 }
