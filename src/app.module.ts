@@ -9,6 +9,9 @@ import { PriceModule } from './price/price.module';
 import { DataStorageModule } from './data-storage/data-storage.module';
 import {DataStorageModel} from "./data-storage/models/data-storage.model";
 import {TypeDataStorageModel} from "./data-storage/models/type-data-storage.model";
+import { ProcessorCoolingModule } from './processor-cooling/processor-cooling.module';
+import {TypeProcessorCoolingModel} from "./processor-cooling/models/type-processor-cooling.model";
+import {ProcessorCoolingModel} from "./processor-cooling/models/processor-cooling.model";
 
 @Module({
     imports: [
@@ -20,12 +23,20 @@ import {TypeDataStorageModel} from "./data-storage/models/type-data-storage.mode
             username: 'postgres',
             password: 'kir.kir@@',
             database: 'configurator',
-            models: [User, RamModel, DataStorageModel, TypeDataStorageModel],
+            models: [
+                User,
+                RamModel,
+                DataStorageModel,
+                TypeDataStorageModel,
+                TypeProcessorCoolingModel,
+                ProcessorCoolingModel
+            ],
             autoLoadModels: true
         }),
         RamModule,
         PriceModule,
         DataStorageModule,
+        ProcessorCoolingModule,
     ],
 })
 export class AppModule {}

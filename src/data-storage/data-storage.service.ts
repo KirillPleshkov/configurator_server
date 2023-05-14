@@ -56,7 +56,7 @@ export class DataStorageService {
 
             const $ = cheerio.load(content)
 
-            const models = $('div.model-price-range')[0]
+            const models = $('div.models-price-range')[0]
 
             const cost = parseInt($($(models).find('span')[0]).text())
 
@@ -80,7 +80,7 @@ export class DataStorageService {
 
         let models = []
 
-        $('div.model-short-div').each((index, element) => {
+        $('div.models-short-div').each((index, element) => {
             const img = 'https://n-katalog.ru' + $(element).find('img').attr('src')
             const header = $(element).find('span.u').text()
             let characteristics = []
@@ -89,7 +89,7 @@ export class DataStorageService {
                 characteristics.push({data: $(e).text().split('\n')[0]})
             })
 
-            const cost = $(element).find('div.model-price-range').text().split('\n')[0]
+            const cost = $(element).find('div.models-price-range').text().split('\n')[0]
             const url = 'https://n-katalog.ru' + $(element).find('a').attr('href')
 
             models.push({img: img, header: header, characteristics: characteristics, cost: cost, url: url})
