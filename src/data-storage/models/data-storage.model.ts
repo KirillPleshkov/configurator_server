@@ -4,6 +4,7 @@ import {TypeDataStorageModel} from "./type-data-storage.model";
 interface DataStorageCreationAttrs {
     readonly volume: number
     readonly typeId: number
+    readonly parsingId: number
 }
 
 @Table({tableName: 'data-storage'})
@@ -14,6 +15,9 @@ export class DataStorageModel extends Model<DataStorageModel, DataStorageCreatio
 
     @Column({type: DataType.INTEGER, allowNull: false})
     volume: number
+
+    @Column({type: DataType.INTEGER, allowNull: false})
+    parsingId: number
 
     @ForeignKey(() => TypeDataStorageModel)
     @Column({type: DataType.INTEGER, allowNull: false})

@@ -3,6 +3,7 @@ import {DataStorageModel} from "./data-storage.model";
 
 interface TypeDataStorageCreationAttrs {
     readonly name: string
+    readonly url: string
 }
 
 
@@ -14,6 +15,9 @@ export class TypeDataStorageModel extends Model<TypeDataStorageModel, TypeDataSt
 
     @Column({type: DataType.STRING, unique: true, allowNull: false})
     name: string
+
+    @Column({type: DataType.STRING, unique: true, allowNull: false})
+    url: string
 
     @HasMany(() => DataStorageModel)
     dataStorages: DataStorageModel

@@ -26,13 +26,4 @@ export class RamController {
         return this.ramService.getComponents(id)
     }
 
-    // @Post('/get-cost')
-    // getCost(@Body() remGetDto: RamGetDto) {
-    //     return this.ramService.getCost(remGetDto)
-    // }
-
-    // @Post('/get-components')
-    // getComponents(@Body() remGetDto: RamGetDto) {
-    //     return this.ramService.getComponents(remGetDto)
-    // }
 }
