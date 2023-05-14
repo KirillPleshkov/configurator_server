@@ -1,7 +1,6 @@
 import {Body, HttpException, HttpStatus, Injectable} from '@nestjs/common';
 import {InjectModel} from "@nestjs/sequelize";
 import {RamModel} from "./models/ram.model";
-import {RamGetDto} from "./dto/ram-get.dto";
 import {RamCreateDto} from "./dto/ram-create.dto";
 import puppeteer from 'puppeteer'
 import * as cheerio from 'cheerio'
@@ -19,11 +18,15 @@ export class RamService {
         })
     }
 
-    async getCost(remGetDto: RamGetDto) {
+    async create(ramCreateDto: RamCreateDto) {
+        return await this.ramRepository.create(ramCreateDto)
+    }
+
+    async getCost(id: number) {
 
         try {
 
-            const object = await this.ramRepository.findOne({where: {name: remGetDto.name}})
+            const object = await this.ramRepository.findOne({where: {id: id}})
 
             const content = await this.getHtml(Math.log2(object.totalVolume))
 
@@ -43,12 +46,8 @@ export class RamService {
 
     }
 
-    async create(ramCreateDto: RamCreateDto) {
-        return await this.ramRepository.create(ramCreateDto)
-    }
-
-    async getComponents(remGetDto: RamGetDto) {
-        const object = await this.ramRepository.findOne({where: {name: remGetDto.name}})
+    async getComponents(id: number) {
+        const object = await this.ramRepository.findOne({where: {id: id}})
 
         const content = await this.getHtml(Math.log2(object.totalVolume))
 

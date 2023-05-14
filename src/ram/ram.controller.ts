@@ -1,6 +1,5 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, Param, Post} from '@nestjs/common';
 import {RamService} from "./ram.service";
-import {RamGetDto} from "./dto/ram-get.dto";
 import {RamCreateDto} from "./dto/ram-create.dto";
 
 @Controller('ram')
@@ -12,18 +11,28 @@ export class RamController {
         return this.ramService.getAllCharacteristics()
     }
 
-    @Post('/get-cost')
-    getCost(@Body() remGetDto: RamGetDto) {
-        return this.ramService.getCost(remGetDto)
-    }
-
     @Post('/create-ram')
     create(@Body() ramCreateDto: RamCreateDto) {
         return this.ramService.create(ramCreateDto)
     }
 
-    @Post('/get-components')
-    getComponents(@Body() remGetDto: RamGetDto) {
-        return this.ramService.getComponents(remGetDto)
+    @Get('/get-cost/:id')
+    getCost(@Param('id') id) {
+        return this.ramService.getCost(id)
     }
+
+    @Get('/get-components/:id')
+    getComponents(@Param('id') id) {
+        return this.ramService.getComponents(id)
+    }
+
+    // @Post('/get-cost')
+    // getCost(@Body() remGetDto: RamGetDto) {
+    //     return this.ramService.getCost(remGetDto)
+    // }
+
+    // @Post('/get-components')
+    // getComponents(@Body() remGetDto: RamGetDto) {
+    //     return this.ramService.getComponents(remGetDto)
+    // }
 }
