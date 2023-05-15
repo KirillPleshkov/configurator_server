@@ -15,14 +15,4 @@ export class DataStorageController {
     getAllCharacteristics() {
         return this.dataStorageService.getAllCharacteristics()
     }
-
-    // @Get('/get-cost/:id')
-    // getCost(@Param('id') id) {
-    //     return this.dataStorageService.getCost(id)
-    // }
-    //
-    // @Get('/get-components/:id')
-    // getComponents(@Param('id') id) {
-    //     return this.dataStorageService.getComponents(id)
-    // }
 }

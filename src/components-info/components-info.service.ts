@@ -13,7 +13,7 @@ export class ComponentsInfoService {
 
         const $ = await getHTML(componentsInfoGetDto.url)
 
-        const models = $('div.models-price-range')[0]
+        const models = $('#h6nouj2zzjv > div')[0]
 
         const minimalPrice = parseInt($($(models).find('span')[0]).text())
 
@@ -30,7 +30,7 @@ export class ComponentsInfoService {
 
         let models = []
 
-        $('div.models-short-div').each((index, element) => {
+        $('#list_form1 > div').each((index, element) => {
             const img = 'https://n-katalog.ru' + $(element).find('img').attr('src')
             const header = $(element).find('span.u').text()
             let characteristics = []
@@ -39,7 +39,7 @@ export class ComponentsInfoService {
                 characteristics.push({data: $(e).text().split('\n')[0]})
             })
 
-            const cost = $(element).find('div.models-price-range').text().split('\n')[0]
+            const cost = $(element).find('#h6nouj2zzjv > div').text().split('\n')[0]
             const url = 'https://n-katalog.ru' + $(element).find('a').attr('href')
 
             models.push({img: img, header: header, characteristics: characteristics, cost: cost, url: url})
