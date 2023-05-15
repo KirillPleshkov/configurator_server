@@ -16,14 +16,14 @@ export class RamController {
         return this.ramService.create(ramCreateDto)
     }
 
-    @Get('/get-cost/:id')
-    getCost(@Param('id') id) {
-        return this.ramService.getCost(id)
-    }
-
-    @Get('/get-components/:id')
-    getComponents(@Param('id') id) {
-        return this.ramService.getComponents(id)
-    }
+    // @Get('/get-cost/:id')
+    // getCost(@Param('id') id) {
+    //     return this.ramService.getCost(id)
+    // }
+    //
+    // @Get('/get-components/:id')
+    // getComponents(@Param('id') id) {
+    //     return this.ramService.getComponents(id)
+    // }
 
 }

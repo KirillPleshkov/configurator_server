@@ -19,6 +19,9 @@ export class DataStorageModel extends Model<DataStorageModel, DataStorageCreatio
     @Column({type: DataType.INTEGER, allowNull: false})
     parsingId: number
 
+    @Column({type: DataType.STRING})
+    url : string
+
     @ForeignKey(() => TypeDataStorageModel)
     @Column({type: DataType.INTEGER, allowNull: false})
     typeId: number

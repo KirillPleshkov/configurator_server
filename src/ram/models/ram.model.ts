@@ -16,4 +16,7 @@ export class RamModel extends Model<RamModel, RamCreationAttrs> {
 
     @Column({type: DataType.INTEGER, allowNull: false})
     totalVolume : number
+
+    @Column({type: DataType.STRING})
+    url : string
 }
