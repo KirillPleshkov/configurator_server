@@ -3,4 +3,5 @@ export class ProcessorCoolingCreationDto {
     readonly typeParserId: number
     readonly numberFans: number
     readonly parserId: number
+    readonly url: string
 }

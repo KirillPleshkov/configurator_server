@@ -16,13 +16,4 @@ export class ProcessorCoolingController {
         return this.processorCoolingService.getAllCharacteristics()
     }
 
-    @Get('/get-cost/:id')
-    getCost(@Param('id') id) {
-        return this.processorCoolingService.getCost(id)
-    }
-
-    @Get('/get-components/:id')
-    getComponents(@Param('id') id) {
-        return this.processorCoolingService.getComponents(id)
-    }
 }

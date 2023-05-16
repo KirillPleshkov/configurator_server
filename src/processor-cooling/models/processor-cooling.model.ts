@@ -6,6 +6,7 @@ interface ProcessorCoolingCreationAttrs {
     readonly numberFans: number
     readonly parserId: number
     readonly typeId: number
+    readonly url: string
 }
 
 @Table({tableName: 'processor-cooling'})
@@ -23,6 +24,9 @@ export class ProcessorCoolingModel extends Model<ProcessorCoolingModel, Processo
     @ForeignKey(() => TypeProcessorCoolingModel)
     @Column({type: DataType.INTEGER, allowNull: false})
     typeId: number
+
+    @Column({type: DataType.STRING, allowNull: false})
+    url : string
 
     @BelongsTo(() => TypeProcessorCoolingModel)
     type: TypeProcessorCoolingModel
