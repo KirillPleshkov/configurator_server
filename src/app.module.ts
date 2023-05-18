@@ -13,6 +13,7 @@ import {TypeProcessorCoolingModel} from "./processor-cooling/models/type-process
 import {ProcessorCoolingModel} from "./processor-cooling/models/processor-cooling.model";
 import { ComponentsInfoModule } from './components-info/components-info.module';
 import { PowerSupplyModule } from './power-supply/power-supply.module';
+import {PowerSupplyModel} from "./power-supply/models/power-supply.model";
 
 @Module({
     imports: [
@@ -30,7 +31,8 @@ import { PowerSupplyModule } from './power-supply/power-supply.module';
                 DataStorageModel,
                 TypeDataStorageModel,
                 TypeProcessorCoolingModel,
-                ProcessorCoolingModel
+                ProcessorCoolingModel,
+                PowerSupplyModel
             ],
             autoLoadModels: true
         }),
