@@ -16,6 +16,7 @@ import { PowerSupplyModule } from './power-supply/power-supply.module';
 import {PowerSupplyModel} from "./power-supply/models/power-supply.model";
 import {SocketModel} from "./socket/models/socket.model";
 import { MotherboardModule } from './motherboard/motherboard.module';
+import {MotherboardModel} from "./motherboard/models/motherboard.model";
 
 @Module({
     imports: [
@@ -35,7 +36,8 @@ import { MotherboardModule } from './motherboard/motherboard.module';
                 TypeProcessorCoolingModel,
                 ProcessorCoolingModel,
                 PowerSupplyModel,
-                SocketModel
+                SocketModel,
+                MotherboardModel
             ],
             autoLoadModels: true
         }),
