@@ -14,6 +14,8 @@ import {ProcessorCoolingModel} from "./processor-cooling/models/processor-coolin
 import { ComponentsInfoModule } from './components-info/components-info.module';
 import { PowerSupplyModule } from './power-supply/power-supply.module';
 import {PowerSupplyModel} from "./power-supply/models/power-supply.model";
+import {SocketModel} from "./socket/models/socket.model";
+import { MotherboardModule } from './motherboard/motherboard.module';
 
 @Module({
     imports: [
@@ -32,7 +34,8 @@ import {PowerSupplyModel} from "./power-supply/models/power-supply.model";
                 TypeDataStorageModel,
                 TypeProcessorCoolingModel,
                 ProcessorCoolingModel,
-                PowerSupplyModel
+                PowerSupplyModel,
+                SocketModel
             ],
             autoLoadModels: true
         }),
@@ -41,6 +44,7 @@ import {PowerSupplyModel} from "./power-supply/models/power-supply.model";
         ProcessorCoolingModule,
         ComponentsInfoModule,
         PowerSupplyModule,
+        MotherboardModule,
     ],
 })
 export class AppModule {}
