@@ -12,6 +12,7 @@ import { ProcessorCoolingModule } from './processor-cooling/processor-cooling.mo
 import {TypeProcessorCoolingModel} from "./processor-cooling/models/type-processor-cooling.model";
 import {ProcessorCoolingModel} from "./processor-cooling/models/processor-cooling.model";
 import { ComponentsInfoModule } from './components-info/components-info.module';
+import { PowerSupplyModule } from './power-supply/power-supply.module';
 
 @Module({
     imports: [
@@ -37,6 +38,7 @@ import { ComponentsInfoModule } from './components-info/components-info.module';
         DataStorageModule,
         ProcessorCoolingModule,
         ComponentsInfoModule,
+        PowerSupplyModule,
     ],
 })
 export class AppModule {}
