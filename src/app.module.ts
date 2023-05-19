@@ -18,6 +18,7 @@ import {SocketModel} from "./socket/models/socket.model";
 import { MotherboardModule } from './motherboard/motherboard.module';
 import {MotherboardModel} from "./motherboard/models/motherboard.model";
 import { VideoCardModule } from './video-card/video-card.module';
+import {VideoCardModel} from "./video-card/models/video-card.model";
 
 @Module({
     imports: [
@@ -38,7 +39,8 @@ import { VideoCardModule } from './video-card/video-card.module';
                 ProcessorCoolingModel,
                 PowerSupplyModel,
                 SocketModel,
-                MotherboardModel
+                MotherboardModel,
+                VideoCardModel
             ],
             autoLoadModels: true
         }),
