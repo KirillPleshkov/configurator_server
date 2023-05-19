@@ -20,6 +20,9 @@ import {MotherboardModel} from "./motherboard/models/motherboard.model";
 import { VideoCardModule } from './video-card/video-card.module';
 import {VideoCardModel} from "./video-card/models/video-card.model";
 import { ProcessorModule } from './processor/processor.module';
+import {ProcessorModel} from "./processor/models/processor.model";
+import {ProcessorCodeNameModel} from "./processor/models/processor-code-name.model";
+import {ProcessorSeriesModel} from "./processor/models/processor-series.model";
 
 @Module({
     imports: [
@@ -41,7 +44,10 @@ import { ProcessorModule } from './processor/processor.module';
                 PowerSupplyModel,
                 SocketModel,
                 MotherboardModel,
-                VideoCardModel
+                VideoCardModel,
+                ProcessorModel,
+                ProcessorCodeNameModel,
+                ProcessorSeriesModel
             ],
             autoLoadModels: true
         }),

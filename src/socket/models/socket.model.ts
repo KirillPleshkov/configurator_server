@@ -1,5 +1,6 @@
-import {Column, DataType, HasOne, Model, Table} from "sequelize-typescript";
+import {Column, DataType, HasMany, HasOne, Model, Table} from "sequelize-typescript";
 import {MotherboardModel} from "../../motherboard/models/motherboard.model";
+import {ProcessorModel} from "../../processor/models/processor.model";
 
 interface SocketCreationAttrs {
     readonly name: string
@@ -16,4 +17,7 @@ export class SocketModel extends Model<SocketModel, SocketCreationAttrs> {
 
     @HasOne(() => MotherboardModel)
     motherboardModel: MotherboardModel
+
+    @HasMany(() => ProcessorModel)
+    processorModel: ProcessorModel
 }
