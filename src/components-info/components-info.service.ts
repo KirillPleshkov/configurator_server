@@ -69,7 +69,7 @@ export class ComponentsInfoService {
             const price = $($(element).find('a')[0]).text()
             const storeUrl = 'https://n-katalog.ru' + $(element).find('a').attr('onmouseover').split('"')[1]
 
-            if (storeName !== "Citilink.ru" && storeName !== "Alt-dim.ru" && storeName !== "DNS-shop.ru")
+            if (storeName !== "Citilink.ru" && storeName !== "Alt-dim.ru" && storeName !== "DNS-shop.ru" && storeName !== 'OLDI.ru')
                 normalImg = img
 
             prices.push({
@@ -83,8 +83,15 @@ export class ComponentsInfoService {
         })
 
         prices.map((element) => {
-            if (element.storeName === "Citilink.ru" || element.storeName === "Alt-dim.ru" || element.storeName === "DNS-shop.ru")
+            if (element.storeName === "Citilink.ru" ||
+                element.storeName === "Alt-dim.ru" ||
+                element.storeName === "DNS-shop.ru" ||
+                element.storeName === 'OLDI.ru') {
+
                 element.img = normalImg
+            }
+
+
         })
 
         return prices

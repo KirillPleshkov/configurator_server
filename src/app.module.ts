@@ -17,6 +17,7 @@ import {PowerSupplyModel} from "./power-supply/models/power-supply.model";
 import {SocketModel} from "./socket/models/socket.model";
 import { MotherboardModule } from './motherboard/motherboard.module';
 import {MotherboardModel} from "./motherboard/models/motherboard.model";
+import { VideoCardModule } from './video-card/video-card.module';
 
 @Module({
     imports: [
@@ -47,6 +48,7 @@ import {MotherboardModel} from "./motherboard/models/motherboard.model";
         ComponentsInfoModule,
         PowerSupplyModule,
         MotherboardModule,
+        VideoCardModule,
     ],
 })
 export class AppModule {}
