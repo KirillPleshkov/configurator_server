@@ -1,10 +1,7 @@
-import {Body, HttpException, HttpStatus, Injectable} from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import {InjectModel} from "@nestjs/sequelize";
 import {RamModel} from "./models/ram.model";
 import {RamCreateDto} from "./dto/ram-create.dto";
-import puppeteer from 'puppeteer'
-import * as cheerio from 'cheerio'
-import {minimal_args} from "../puppeteer.config";
 
 
 @Injectable()

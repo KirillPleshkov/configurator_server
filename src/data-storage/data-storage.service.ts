@@ -1,11 +1,9 @@
-import {HttpException, HttpStatus, Injectable} from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import {DataStorageCreateDto} from "./dto/data-storage-create.dto";
 import {InjectModel} from "@nestjs/sequelize";
 import {DataStorageModel} from "./models/data-storage.model";
 import {TypeDataStorageModel} from "./models/type-data-storage.model";
-import puppeteer from "puppeteer";
-import {minimal_args} from "../puppeteer.config";
-import * as cheerio from "cheerio";
+
 
 @Injectable()
 export class DataStorageService {

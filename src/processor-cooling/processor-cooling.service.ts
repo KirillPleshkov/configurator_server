@@ -1,11 +1,9 @@
-import {HttpException, HttpStatus, Injectable, Param} from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import {ProcessorCoolingCreationDto} from "./dto/processor.cooling-creation.dto";
 import {InjectModel} from "@nestjs/sequelize";
 import {ProcessorCoolingModel} from "./models/processor-cooling.model";
 import {TypeProcessorCoolingModel} from "./models/type-processor-cooling.model";
-import puppeteer from "puppeteer";
-import {minimal_args} from "../puppeteer.config";
-import * as cheerio from "cheerio";
+
 
 @Injectable()
 export class ProcessorCoolingService {

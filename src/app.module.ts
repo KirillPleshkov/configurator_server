@@ -1,8 +1,7 @@
-import {forwardRef, Module} from '@nestjs/common';
+import {Module} from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import {SequelizeModule} from "@nestjs/sequelize";
 import {User} from "./users/models/users.model";
-import {JwtAuthGuard} from "./users/guards/jwt-auth.guard";
 import { RamModule } from './ram/ram.module';
 import {RamModel} from "./ram/models/ram.model";
 import { DataStorageModule } from './data-storage/data-storage.module';
@@ -26,7 +25,6 @@ import {ProcessorSeriesModel} from "./processor/models/processor-series.model";
 
 @Module({
     imports: [
-        UsersModule,
         SequelizeModule.forRoot({
             dialect: 'postgres',
             host: 'localhost',
@@ -51,6 +49,7 @@ import {ProcessorSeriesModel} from "./processor/models/processor-series.model";
             ],
             autoLoadModels: true
         }),
+        UsersModule,
         RamModule,
         DataStorageModule,
         ProcessorCoolingModule,

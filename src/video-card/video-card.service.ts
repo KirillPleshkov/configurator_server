@@ -3,17 +3,18 @@ import {VideoCardCreateDto} from "./dto/video-card-create.dto";
 import {InjectModel} from "@nestjs/sequelize";
 import {VideoCardModel} from "./models/video-card.model";
 import {VideoCardGetDto} from "./dto/video-card-get.dto";
+import {VideoCardCharacteristicsDto} from "./dto/video-card-characteristics.dto";
 
 @Injectable()
 export class VideoCardService {
 
     constructor(@InjectModel(VideoCardModel) private videoCardRepository: typeof VideoCardModel) {}
 
-    async create(videoCardCreateDto: VideoCardCreateDto) {
+    async create(videoCardCreateDto: VideoCardCreateDto): Promise<VideoCardModel> {
         return await this.videoCardRepository.create(videoCardCreateDto)
     }
 
-    async getAllCharacteristics(videoCardGetDto: VideoCardGetDto) {
+    async getAllCharacteristics(videoCardGetDto: VideoCardGetDto): Promise<VideoCardCharacteristicsDto[]> {
         const models = await this.videoCardRepository.findAll()
 
         let result = []
