@@ -20,12 +20,22 @@ export class VideoCardService {
 
         models.map((element) => {
 
-            let isBest = false
-            if(element.recommendedPower >= videoCardGetDto.power && element.recommendedPower <= videoCardGetDto.power + 100) {
-                isBest = true
+            let isBest = true
+
+            if(videoCardGetDto.performanceLevel === null && videoCardGetDto.power === null)
+                isBest = false
+
+            if(videoCardGetDto.performanceLevel !== null && element.performanceLevel !== videoCardGetDto.performanceLevel) {
+                isBest = false
+            }
+            else if(videoCardGetDto.power !== null && (
+                element.recommendedPower < videoCardGetDto.power ||
+                element.recommendedPower > videoCardGetDto.power + 100)) {
+
+                isBest = false
             }
 
-            result.push({recommendedPower: element.recommendedPower, name: element.name, id: element.id, url: element.url, isBest})
+            result.push({recommendedPower: element.recommendedPower, name: element.name, id: element.id, url: element.url, isBest, performanceLevel: element.performanceLevel})
         })
 
         result.sort((a, b) =>

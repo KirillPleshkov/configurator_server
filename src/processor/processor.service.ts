@@ -27,16 +27,41 @@ export class ProcessorService {
     }
 
     async getAllCharacteristics(processorGetDto: ProcessorGetDto) {
-        const models = await this.processorRepository.findAll({include: [ProcessorCodeNameModel, ProcessorSeriesModel]})
+
+        let models : ProcessorModel[]
+
+        if(processorGetDto.socketId !== null) {
+            models = await this.processorRepository.findAll({
+                include: [ProcessorCodeNameModel, ProcessorSeriesModel],
+                where: {socketId: processorGetDto.socketId}
+            })
+        }
+        else {
+            models = await this.processorRepository.findAll({
+                include: [ProcessorCodeNameModel, ProcessorSeriesModel]
+            })
+        }
 
         let result = []
+
+        console.log(processorGetDto.performanceLevel)
 
         models.map((element) => {
 
             const name = element.series.name + ' ' + element.codeName.name
+            let isBest = false
 
-            result.push({url: element.url, id: element.id, name: name})
+            if(processorGetDto.performanceLevel === element.performanceLevel)
+                isBest = true
+
+            result.push({url: element.url, id: element.id, name: name, socketId: element.socketId, isBest, performanceLevel: element.performanceLevel})
         })
+
+        result.sort((a, b) =>
+            (a.isBest === true && b.isBest === false) ? -1 :
+                (b.isBest === true && a.isBest === false) ? 1 :
+                    (a.id < b.id) ? -1 : 1
+        )
 
         return result
     }
