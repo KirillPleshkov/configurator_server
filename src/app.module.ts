@@ -22,6 +22,7 @@ import { ProcessorModule } from './processor/processor.module';
 import {ProcessorModel} from "./processor/models/processor.model";
 import {ProcessorCodeNameModel} from "./processor/models/processor-code-name.model";
 import {ProcessorSeriesModel} from "./processor/models/processor-series.model";
+import { AssemblyModule } from './assembly/assembly.module';
 
 @Module({
     imports: [
@@ -58,6 +59,7 @@ import {ProcessorSeriesModel} from "./processor/models/processor-series.model";
         MotherboardModule,
         VideoCardModule,
         ProcessorModule,
+        AssemblyModule,
     ],
 })
 export class AppModule {}
