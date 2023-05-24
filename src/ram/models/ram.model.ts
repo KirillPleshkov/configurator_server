@@ -1,4 +1,5 @@
-import {Column, DataType, Model, Table} from "sequelize-typescript";
+import {Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
+import {AssemblyModel} from "../../assembly/models/assembly.model";
 
 interface RamCreationAttrs {
     readonly name: string
@@ -19,4 +20,7 @@ export class RamModel extends Model<RamModel, RamCreationAttrs> {
 
     @Column({type: DataType.STRING})
     url : string
+
+    @HasMany(() => AssemblyModel)
+    processorModel: AssemblyModel
 }

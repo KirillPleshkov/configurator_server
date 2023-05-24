@@ -1,4 +1,5 @@
-import {Column, DataType, Model, Table} from "sequelize-typescript";
+import {Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
+import {AssemblyModel} from "../../assembly/models/assembly.model";
 
 
 interface VideoCardCreationAttrs {
@@ -29,5 +30,8 @@ export class VideoCardModel extends Model<VideoCardModel, VideoCardCreationAttrs
 
     @Column({type: DataType.STRING, allowNull: false})
     url: string
+
+    @HasMany(() => AssemblyModel)
+    processorModel: AssemblyModel
 
 }

@@ -1,4 +1,5 @@
-import {Column, DataType, Model, Table} from "sequelize-typescript";
+import {Column, DataType, HasMany, Model, Table} from "sequelize-typescript";
+import {AssemblyModel} from "../../assembly/models/assembly.model";
 
 
 interface UserCreationAttrs {
@@ -17,4 +18,7 @@ export class User extends Model<User, UserCreationAttrs> {
 
     @Column({type: DataType.STRING, allowNull: false})
     password: string
+
+    @HasMany(() => AssemblyModel)
+    processorModel: AssemblyModel
 }

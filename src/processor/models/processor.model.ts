@@ -1,7 +1,8 @@
-import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table} from "sequelize-typescript";
 import {ProcessorSeriesModel} from "./processor-series.model";
 import {ProcessorCodeNameModel} from "./processor-code-name.model";
 import {SocketModel} from "../../socket/models/socket.model";
+import {AssemblyModel} from "../../assembly/models/assembly.model";
 
 
 interface ProcessorCreationAttrs {
@@ -46,4 +47,7 @@ export class ProcessorModel extends Model<ProcessorModel, ProcessorCreationAttrs
 
     @BelongsTo(() => SocketModel)
     socket: SocketModel
+
+    @HasMany(() => AssemblyModel)
+    processorModel: AssemblyModel
 }

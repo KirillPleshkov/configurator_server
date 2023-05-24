@@ -1,6 +1,7 @@
-import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table} from "sequelize-typescript";
 import {SocketModel} from "../../socket/models/socket.model";
 import {TypeProcessorCoolingModel} from "../../processor-cooling/models/type-processor-cooling.model";
+import {AssemblyModel} from "../../assembly/models/assembly.model";
 
 interface MotherboardCreationAttrs {
     readonly parserId: number
@@ -25,4 +26,7 @@ export class MotherboardModel extends Model<MotherboardModel, MotherboardCreatio
 
     @BelongsTo(() => SocketModel)
     socket: SocketModel
+
+    @HasMany(() => AssemblyModel)
+    processorModel: AssemblyModel
 }

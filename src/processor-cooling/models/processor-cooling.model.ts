@@ -1,5 +1,6 @@
-import {BelongsTo, Column, DataType, ForeignKey, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table} from "sequelize-typescript";
 import {TypeProcessorCoolingModel} from "./type-processor-cooling.model";
+import {AssemblyModel} from "../../assembly/models/assembly.model";
 
 
 interface ProcessorCoolingCreationAttrs {
@@ -30,4 +31,7 @@ export class ProcessorCoolingModel extends Model<ProcessorCoolingModel, Processo
 
     @BelongsTo(() => TypeProcessorCoolingModel)
     type: TypeProcessorCoolingModel
+
+    @HasMany(() => AssemblyModel)
+    processorModel: AssemblyModel
 }

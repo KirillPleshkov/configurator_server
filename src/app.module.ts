@@ -1,4 +1,4 @@
-import {Module} from '@nestjs/common';
+import {forwardRef, Module} from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import {SequelizeModule} from "@nestjs/sequelize";
 import {User} from "./users/models/users.model";
@@ -23,6 +23,8 @@ import {ProcessorModel} from "./processor/models/processor.model";
 import {ProcessorCodeNameModel} from "./processor/models/processor-code-name.model";
 import {ProcessorSeriesModel} from "./processor/models/processor-series.model";
 import { AssemblyModule } from './assembly/assembly.module';
+import {AssemblyModel} from "./assembly/models/assembly.model";
+import {JwtAuthGuard} from "./users/guards/jwt-auth.guard";
 
 @Module({
     imports: [
@@ -46,7 +48,8 @@ import { AssemblyModule } from './assembly/assembly.module';
                 VideoCardModel,
                 ProcessorModel,
                 ProcessorCodeNameModel,
-                ProcessorSeriesModel
+                ProcessorSeriesModel,
+                AssemblyModel
             ],
             autoLoadModels: true
         }),
@@ -61,5 +64,7 @@ import { AssemblyModule } from './assembly/assembly.module';
         ProcessorModule,
         AssemblyModule,
     ],
+
+
 })
 export class AppModule {}

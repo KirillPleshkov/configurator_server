@@ -1,5 +1,7 @@
-import {Column, DataType, Model, Table, BelongsTo, HasOne, ForeignKey} from "sequelize-typescript";
+import {Column, DataType, Model, Table, BelongsTo, HasOne, ForeignKey, HasMany} from "sequelize-typescript";
 import {TypeDataStorageModel} from "./type-data-storage.model";
+import {ProcessorModel} from "../../processor/models/processor.model";
+import {AssemblyModel} from "../../assembly/models/assembly.model";
 
 interface DataStorageCreationAttrs {
     readonly volume: number
@@ -28,4 +30,7 @@ export class DataStorageModel extends Model<DataStorageModel, DataStorageCreatio
 
     @BelongsTo(() => TypeDataStorageModel)
     type: TypeDataStorageModel
+
+    @HasMany(() => AssemblyModel)
+    processorModel: AssemblyModel
 }
